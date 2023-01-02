@@ -7,53 +7,7 @@ const fs = require('fs');
 
 const questions = [];
 
-inquirer.prompt([
-    {
-        type: 'input',
-        message: 'Please enter the title of your project',
-        name: 'title'
-    },
-    {
-        type: 'input',
-        message: 'Please enter a description of your project',
-        name: 'desc'
-    },
-    {
-        type: 'input',
-        message: 'Please enter installation instructions for your project',
-        name: 'instructions'
-    },
-    {
-        type: 'input',
-        message: 'Please enter usage information for your project',
-        name: 'usage'
-    },
-    {
-        type: 'input',
-        message: 'Please enter contribustion guidelines for your project',
-        name: 'contribution'
-    },
-    {
-        type: 'input',
-        message: 'Please enter test instructions for your project',
-        name: 'testing'
-    },
-    {
-        type: 'list',
-        message: 'Please choose a license for your project',
-        choices: ['MIT', 'GNU'],
-        name: 'license'
-    },
 
-    {
-        type: 'input',
-        message: 'Please enter questions for your project',
-        name: 'questions'
-    }
-])
-.then((data) => {
-    writeToFile('README.md', data);
-});
 
 var chooseLicense = (license) => {
     var licenseText = '';
@@ -80,8 +34,8 @@ var chooseLicense = (license) => {
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
         SOFTWARE.`
     } else {
-        licenseText = `                   GNU LESSER GENERAL PUBLIC LICENSE
-        Version 3, 29 June 2007
+        licenseText = `GNU LESSER GENERAL PUBLIC LICENSE
+Version 3, 29 June 2007
 
 Copyright (C) 2007 Free Software Foundation, Inc. <https://fsf.org/>
 Everyone is permitted to copy and distribute verbatim copies
@@ -268,11 +222,14 @@ function writeToFile(fileName, data) {
 ## Testing
     ${data.testing}
 
-## Questions
-    ${data.questions}
-
+    
 ## License
     ${chooseLicense(data.license)}
+
+## Questions
+My [GitHub](https://github.com/${data.username})
+
+For additional questions please email me at: ${data.email}
 `;
 
 
@@ -284,6 +241,58 @@ function writeToFile(fileName, data) {
 
 // TODO: Create a function to initialize app
 function init() {
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: 'Please enter the title of your project',
+            name: 'title'
+        },
+        {
+            type: 'input',
+            message: 'Please enter a description of your project',
+            name: 'desc'
+        },
+        {
+            type: 'input',
+            message: 'Please enter installation instructions for your project',
+            name: 'instructions'
+        },
+        {
+            type: 'input',
+            message: 'Please enter usage information for your project',
+            name: 'usage'
+        },
+        {
+            type: 'input',
+            message: 'Please enter contribustion guidelines for your project',
+            name: 'contribution'
+        },
+        {
+            type: 'input',
+            message: 'Please enter test instructions for your project',
+            name: 'testing'
+        },
+        {
+            type: 'list',
+            message: 'Please choose a license for your project',
+            choices: ['MIT', 'GNU'],
+            name: 'license'
+        },
+    
+        {
+            type: 'input',
+            message: 'Please enter your github username',
+            name: 'username'
+        },
+        {
+            type: 'input',
+            message: 'Please enter your email',
+            name: 'email'
+        },
+    ])
+    .then((data) => {
+        writeToFile('README.md', data);
+    });
 }
 
 // Function call to initialize app

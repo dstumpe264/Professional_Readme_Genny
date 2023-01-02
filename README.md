@@ -1,13 +1,13 @@
-# 
+# d
 
 ## Description
-    
+    d
 
 ## Installation Instructions
-    
+    d
 
 ## Usage
-    
+    d
 
 ## Contribution Guidelines
     
@@ -15,11 +15,9 @@
 ## Testing
     
 
-## Questions
     
-
 ## License
-MIT License
+    MIT License
 
         Copyright (c) [year] [fullname]
         
@@ -40,3 +38,8 @@ MIT License
         LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
         OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
         SOFTWARE.
+
+## Questions
+My [GitHub](https://github.com/)
+
+For additional questions please email me at: 
