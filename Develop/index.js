@@ -264,7 +264,7 @@ function init() {
         },
         {
             type: 'input',
-            message: 'Please enter contribustion guidelines for your project',
+            message: 'Please enter contribution; guidelines for your project',
             name: 'contribution'
         },
         {
